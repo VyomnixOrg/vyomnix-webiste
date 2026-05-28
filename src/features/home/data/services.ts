@@ -36,44 +36,14 @@ export const SERVICES: Service[] = [
         features: ["Modular architecture", "Role-based access", "Real-time reporting", "Third-party integrations"],
       },
       {
-        title: "POS & Billing Systems",
-        description: "Point-of-sale and billing platforms for retail and hospitality.",
-        features: ["Multi-terminal support", "Inventory management", "Tax compliance", "Cloud sync & reporting"],
-      },
-      {
         title: "Cloud Infrastructure & Hosting",
         description: "Reliable cloud infrastructure, server management, and hosting.",
         features: ["AWS / GCP / Azure", "Auto-scaling setup", "99.9% uptime SLA", "Security hardened"],
       },
       {
-        title: "API Development & Integration",
-        description: "Robust APIs connecting your systems and third-party platforms.",
-        features: ["RESTful & GraphQL APIs", "Webhook automation", "OAuth & security layers", "Documentation included"],
-      },
-      {
-        title: "SaaS Product Development",
-        description: "Build and launch scalable software-as-a-service products.",
-        features: ["Multi-tenant architecture", "Subscription billing", "Usage analytics", "CI/CD pipeline"],
-      },
-      {
         title: "AI-powered Business Solutions",
         description: "Intelligent automation and AI tools embedded in your workflow.",
         features: ["Chatbots & assistants", "Predictive analytics", "Document processing", "ML model integration"],
-      },
-      {
-        title: "Data Analytics & Dashboards",
-        description: "Visual insights and business intelligence dashboards.",
-        features: ["Real-time data pipelines", "Custom KPI dashboards", "Data export tools", "Role-based views"],
-      },
-      {
-        title: "Payment Integration",
-        description: "Secure payment gateways integrated into your platforms.",
-        features: ["Multiple gateway support", "PCI-compliant", "Subscription billing", "Refund workflows"],
-      },
-      {
-        title: "Business Management Software",
-        description: "Centralized platforms to manage operations end-to-end.",
-        features: ["HR & payroll modules", "Task & project tools", "Finance management", "Audit trails"],
       },
     ],
   },
@@ -111,16 +81,6 @@ export const SERVICES: Service[] = [
         description: "Biometric and card-based attendance tracking and access control.",
         features: ["Fingerprint & face recognition", "RFID card access", "Payroll integration", "Audit logs"],
       },
-      {
-        title: "Networking & Office Infrastructure",
-        description: "End-to-end network design, installation, and structured cabling for office connectivity.",
-        features: ["Structured cabling", "Wi-Fi design & deployment", "Firewall setup", "Network monitoring"],
-      },
-      {
-        title: "Smart Business Devices",
-        description: "Procurement, setup, and MDM management of smart business displays and devices.",
-        features: ["Device procurement", "Setup & configuration", "MDM enrollment", "Ongoing support"],
-      },
     ],
   },
   {
@@ -156,16 +116,6 @@ export const SERVICES: Service[] = [
         title: "E-commerce Solutions",
         description: "Full-featured online stores integrated with payments and logistics.",
         features: ["Custom storefront design", "Payment gateway setup", "Inventory management", "Mobile-optimized"],
-      },
-      {
-        title: "Technical Consultation",
-        description: "Strategic IT advisory services helping organizations plan and implement technology.",
-        features: ["Technology roadmapping", "Vendor evaluation", "Architecture review", "Security assessment"],
-      },
-      {
-        title: "Maintenance & Support",
-        description: "Dedicated post-deployment support, proactive monitoring, and updates.",
-        features: ["SLA-based support", "Proactive monitoring", "Bug fixes & updates", "Performance optimization"],
       },
     ],
   },

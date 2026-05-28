@@ -12,6 +12,11 @@ interface SectionHeadingProps {
   className?: string;
 }
 
+/**
+ * Premium, customizable Section Heading component.
+ * Supports center alignments and left-aligned offset desktop layouts (title left, desc right).
+ * Features a self-drawing animated primary gradient divider.
+ */
 export function SectionHeading({
   label,
   title,
@@ -26,22 +31,38 @@ export function SectionHeading({
       whileInView="visible"
       viewport={viewportConfig}
       className={cn(
-        "mb-14 max-w-2xl",
-        align === "center" && "mx-auto text-center",
-        align === "left" && "text-left",
+        "mb-12 w-full flex flex-col",
+        align === "center" && "mx-auto text-center items-center max-w-2xl",
+        align === "left" && "text-left items-start max-w-2xl",
         className
       )}
     >
-      {label && (
-        <span className="mb-3 inline-block rounded-full bg-secondary px-4 py-1.5 text-sm font-medium text-primary">
-          {label}
-        </span>
-      )}
-      <h2 className="text-3xl font-semibold tracking-tight text-accent md:text-4xl lg:text-[2.75rem] lg:leading-tight">
-        {title}
-      </h2>
+      {/* Title & Badge */}
+      <div className="w-full">
+        {label && (
+          <span className="mb-2.5 inline-block text-[10px] md:text-xs font-bold uppercase tracking-widest text-primary">
+            {label}
+          </span>
+        )}
+        <h2 className="text-3xl font-bold tracking-tight text-accent sm:text-4xl lg:text-[2.5rem] lg:leading-[1.15]">
+          {title}
+        </h2>
+        
+        {/* Animated Gradient Underline */}
+        <div className={cn("mt-4 flex", align === "center" ? "justify-center" : "justify-start")}>
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: "3.5rem" }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.15 }}
+            className="h-1 rounded-full bg-gradient-to-r from-primary to-primary-hover"
+          />
+        </div>
+      </div>
+
+      {/* Description */}
       {description && (
-        <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+        <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg max-w-2xl">
           {description}
         </p>
       )}

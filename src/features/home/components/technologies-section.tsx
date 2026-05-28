@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "@/common/components/motion";
 import { Container } from "@/common/components/ui/container";
 import { SectionHeading } from "@/common/components/ui/section-heading";
-import { Badge } from "@/common/components/ui/badge";
+import { TechIcon } from "@/common/components/ui/tech-icon";
 import { TECH_STACK } from "@/features/home/data/technologies";
 import { cn } from "@/common/utils";
 
@@ -74,11 +74,22 @@ export function TechnologiesSection() {
                 <h3 className="mb-4 text-xs font-bold uppercase tracking-wider text-primary">
                   {category.category}
                 </h3>
-                <div className="flex flex-wrap gap-2">
+                
+                {/* 2-Column Grid of Tech Chips with Real Vector Logos */}
+                <div className="grid grid-cols-2 gap-3">
                   {category.technologies.map((tech) => (
-                    <Badge key={tech} variant="outline" className="bg-muted/30 hover:border-primary/20 transition-colors">
-                      {tech}
-                    </Badge>
+                    <div
+                      key={tech}
+                      className="group/tech flex items-center gap-2.5 rounded-xl border border-border/60 bg-muted/10 px-3 py-2 transition-all duration-200 hover:border-primary/20 hover:bg-secondary/15"
+                    >
+                      <TechIcon
+                        name={tech}
+                        className="size-5 text-muted-foreground opacity-65 grayscale transition-all duration-300 group-hover/tech:scale-105 group-hover/tech:opacity-100 group-hover/tech:grayscale-0 group-hover/tech:text-primary"
+                      />
+                      <span className="text-xs font-medium text-accent transition-colors group-hover/tech:text-primary line-clamp-1">
+                        {tech}
+                      </span>
+                    </div>
                   ))}
                 </div>
               </motion.div>

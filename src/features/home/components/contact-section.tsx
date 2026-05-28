@@ -169,7 +169,7 @@ export function ContactSection() {
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.1 }}
+                      transition={{ type: "spring", stiffness: 250, damping: 22, delay: 0.1 }}
                       className="flex size-16 items-center justify-center rounded-full bg-secondary text-primary shadow-sm"
                     >
                       <svg
@@ -182,13 +182,14 @@ export function ContactSection() {
                         <motion.path
                           initial={{ pathLength: 0 }}
                           animate={{ pathLength: 1 }}
-                          transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
+                          transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1], delay: 0.35 }}
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           d="M5 13l4 4L19 7"
                         />
                       </svg>
                     </motion.div>
+
                     <motion.h3
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}

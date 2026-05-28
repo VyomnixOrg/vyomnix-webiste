@@ -31,8 +31,16 @@ export function HeroSection() {
 
         {/* Floating Glassmorphic Cards (Decorative nodes) */}
         <motion.div
-          animate={{ y: [0, -12, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          animate={{
+            y: [0, -10, 5, -8, 0],
+            x: [0, 6, -4, 5, 0],
+            rotate: [0, 0.5, -0.5, 0.5, 0]
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: [0.4, 0, 0.2, 1]
+          }}
           className="absolute top-[28%] left-[6%] hidden lg:flex items-center gap-3 rounded-xl border border-primary/20 bg-white/80 p-4 shadow-sm backdrop-blur-md"
         >
           <div className="flex size-9 items-center justify-center rounded-lg bg-secondary text-primary">
@@ -45,8 +53,17 @@ export function HeroSection() {
         </motion.div>
 
         <motion.div
-          animate={{ y: [0, 12, 0] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          animate={{
+            y: [0, 12, -6, 8, 0],
+            x: [0, -5, 4, -3, 0],
+            rotate: [0, -0.8, 0.5, -0.4, 0]
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: [0.4, 0, 0.2, 1],
+            delay: 0.5
+          }}
           className="absolute top-[48%] right-[6%] hidden lg:flex items-center gap-3 rounded-xl border border-primary/20 bg-white/80 p-4 shadow-sm backdrop-blur-md"
         >
           <div className="flex size-9 items-center justify-center rounded-lg bg-secondary text-primary">
@@ -59,8 +76,17 @@ export function HeroSection() {
         </motion.div>
 
         <motion.div
-          animate={{ y: [0, -8, 0], x: [0, 6, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          animate={{
+            y: [0, -8, 10, -5, 0],
+            x: [0, -7, 6, -4, 0],
+            rotate: [0, 0.6, -0.6, 0.3, 0]
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: [0.4, 0, 0.2, 1],
+            delay: 1
+          }}
           className="absolute top-[18%] right-[16%] hidden lg:flex items-center gap-3 rounded-xl border border-primary/20 bg-white/80 p-4 shadow-sm backdrop-blur-md"
         >
           <div className="flex size-9 items-center justify-center rounded-lg bg-secondary text-primary">
