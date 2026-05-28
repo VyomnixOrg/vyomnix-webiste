@@ -1,0 +1,53 @@
+[00:00:01.348] Server  LOG     ✓ Ready in 985ms
+[00:00:35.902] Server  LOG     ○ Compiling / ...
+[00:00:41.552] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:06.509] Server  LOG     ✓ Compiled in 430ms
+[00:11:07.959] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:08.058] Server  LOG     ✓ Compiled in 36ms
+[00:11:20.451] Server  LOG     ✓ Compiled in 1121ms
+[00:11:21.985] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:22.071] Server  LOG     ✓ Compiled in 20ms
+[00:11:30.663] Server  LOG     ✓ Compiled in 657ms
+[00:11:39.021] Server  LOG     ✓ Compiled in 2.8s
+[00:11:50.779] Server  LOG     ✓ Compiled in 85ms
+[00:11:59.492] Server  LOG     ✓ Compiled in 416ms
+[00:12:05.443] Server  LOG     ✓ Compiled in 316ms
+[00:17:40.888] Server  LOG     ✓ Compiled in 146ms
+[00:17:48.289] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:17:57.083] Server  LOG     ✓ Compiled in 264ms
+[00:18:11.985] Server  LOG     ✓ Compiled in 71ms
+[00:18:23.215] Server  LOG     ✓ Compiled in 224ms
+[00:18:28.812] Server  LOG     ✓ Compiled in 120ms
+[00:18:37.634] Server  LOG     ✓ Compiled in 399ms
+[00:18:47.199] Server  LOG     ✓ Compiled in 798ms
+[00:18:47.378] Browser ERROR   uncaughtError: ReferenceError: AnimatePresence is not defined
+[00:18:53.889] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:18:53.908] Server  LOG     ✓ Compiled in 92ms
+[00:18:54.545] Server  ERROR   ⨯ ReferenceError: AnimatePresence is not defined
+[00:18:56.228] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:56.920] Browser ERROR   uncaughtError: ReferenceError: AnimatePresence is not defined
+[00:19:04.340] Server  ERROR   ⨯ ReferenceError: AnimatePresence is not defined
+[00:19:04.388] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:19:05.487] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:05.632] Server  LOG     ✓ Compiled in 36ms
+[00:19:06.102] Browser ERROR   uncaughtError: ReferenceError: AnimatePresence is not defined
+[00:19:09.365] Server  ERROR   ⨯ ReferenceError: AnimatePresence is not defined
+[00:19:10.764] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:10.822] Server  LOG     ✓ Compiled in 25ms
+[00:19:11.254] Browser ERROR   uncaughtError: ReferenceError: AnimatePresence is not defined
+[00:19:14.123] Server  ERROR   ⨯ ReferenceError: AnimatePresence is not defined
+[00:19:15.300] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:15.542] Server  LOG     ✓ Compiled in 19ms
+[00:19:15.916] Browser ERROR   uncaughtError: ReferenceError: AnimatePresence is not defined
+[00:19:20.898] Server  ERROR   ⨯ ReferenceError: AnimatePresence is not defined
+[00:19:22.595] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:22.706] Server  LOG     ✓ Compiled in 14ms
+[00:19:23.163] Browser ERROR   uncaughtError: ReferenceError: AnimatePresence is not defined
+[00:19:29.012] Server  ERROR   ⨯ ReferenceError: AnimatePresence is not defined
+[00:19:30.852] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:31.017] Server  LOG     ✓ Compiled in 18ms
+[00:19:32.158] Browser ERROR   uncaughtError: ReferenceError: AnimatePresence is not defined
+[00:20:08.866] Server  LOG     ✓ Compiled in 1007ms
+[00:20:08.876] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:20:11.985] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:21:18.161] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
