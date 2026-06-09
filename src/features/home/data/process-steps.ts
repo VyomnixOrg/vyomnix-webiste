@@ -1,19 +1,23 @@
-import type { ProcessStep } from "@/common/types";
+export interface ProcessStep {
+  step: number;
+  title: string;
+  description: string;
+}
 
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     step: 1,
-    title: "Requirement Analysis",
-    description: "Understanding goals, scope, and business requirements to define a clear project direction.",
+    title: "Discovery",
+    description: "Understanding your goals, requirements, and business context to define a clear project direction.",
   },
   {
     step: 2,
-    title: "Planning & Architecture",
+    title: "Planning",
     description: "Building the roadmap, selecting the tech stack, and designing the system architecture.",
   },
   {
     step: 3,
-    title: "UI/UX Design",
+    title: "Design",
     description: "Creating wireframes, prototypes, and polished interface designs centered on user experience.",
   },
   {
@@ -23,8 +27,8 @@ export const PROCESS_STEPS: ProcessStep[] = [
   },
   {
     step: 5,
-    title: "Testing & QA",
-    description: "Comprehensive automated and manual testing to ensure quality and reliability.",
+    title: "Testing",
+    description: "Comprehensive automated and manual testing to ensure quality, security, and reliability.",
   },
   {
     step: 6,
@@ -33,7 +37,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
   },
   {
     step: 7,
-    title: "Support & Maintenance",
-    description: "Ongoing monitoring, updates, performance optimization, and dedicated support.",
+    title: "Growth",
+    description: "Ongoing monitoring, updates, optimization, and dedicated support to scale your success.",
   },
 ];

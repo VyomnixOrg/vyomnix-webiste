@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Sora, Inter } from "next/font/google";
 import { Header } from "@/common/components/layout/header";
 import { Footer } from "@/common/components/layout/footer";
+import { SmoothScroll } from "@/lib/smooth-scroll";
 import { SITE_NAME, SITE_TAGLINE, SITE_DESCRIPTION, SITE_URL } from "@/common/constants/site";
 import "./globals.css";
 
@@ -60,7 +61,9 @@ export default function RootLayout({
         </a>
 
         <Header />
-        <main id="main-content">{children}</main>
+        <SmoothScroll>
+          <main id="main-content">{children}</main>
+        </SmoothScroll>
         <Footer />
       </body>
     </html>

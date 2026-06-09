@@ -4,8 +4,6 @@ import {
   ServicesSection,
   WhyChooseSection,
   ProcessSection,
-  TechnologiesSection,
-  IndustriesSection,
   CtaSection,
   ContactSection,
 } from "@/features/home";
@@ -18,8 +16,6 @@ export default function HomePage() {
       <ServicesSection />
       <WhyChooseSection />
       <ProcessSection />
-      <TechnologiesSection />
-      <IndustriesSection />
       <CtaSection />
       <ContactSection />
     </>

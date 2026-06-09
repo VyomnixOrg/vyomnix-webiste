@@ -1,121 +1,159 @@
-import type { Service } from "@/common/types";
+export interface ServiceItem {
+  icon: string;
+  title: string;
+  description: string;
+  features: string[];
+}
 
-export const SERVICES: Service[] = [
+export interface ServiceCategory {
+  id: string;
+  label: string;
+  featured: {
+    title: string;
+    description: string;
+    visual: string;
+  };
+  items: ServiceItem[];
+}
+
+export const SERVICES: ServiceCategory[] = [
   {
-    icon: "code",
-    title: "Software & Cloud Services",
-    description:
-      "End-to-end software development, cloud infrastructure, SaaS platforms, and AI-powered digital solutions for modern enterprises.",
-    tags: [
-      "Custom Software",
-      "Web & Mobile Apps",
-      "Cloud Infrastructure",
-      "ERP / CRM / POS",
-      "API Integration",
-      "SaaS & AI Solutions",
-    ],
-    subServices: [
+    id: "software",
+    label: "Software",
+    featured: {
+      title: "Custom Software Development",
+      description: "Build scalable applications tailored to your business requirements — from web platforms to enterprise systems.",
+      visual: "code",
+    },
+    items: [
       {
-        title: "Custom Software Development",
-        description: "Tailored software solutions built to your exact specifications.",
-        features: ["Requirements-driven architecture", "Agile delivery methodology", "Scalable and maintainable codebase", "Cross-platform compatibility"],
+        icon: "code",
+        title: "Web Applications",
+        description: "High-performance web platforms built with modern frameworks.",
+        features: ["React & Next.js", "API-first architecture", "Responsive & accessible"],
       },
       {
-        title: "Mobile App Development",
-        description: "Native and cross-platform mobile applications for iOS and Android.",
-        features: ["Flutter & React Native", "Performance-optimized", "Offline capability", "App Store deployment"],
+        icon: "smartphone",
+        title: "Mobile Apps",
+        description: "Native and cross-platform apps for iOS and Android.",
+        features: ["Flutter & React Native", "Offline capability", "App Store deployment"],
       },
       {
-        title: "Website Development",
-        description: "Professional websites and web applications built for performance.",
-        features: ["Responsive & accessible", "SEO-optimized", "CMS integration", "Fast loading & secure"],
+        icon: "layout-dashboard",
+        title: "ERP & CRM Systems",
+        description: "Enterprise platforms that streamline operations and data.",
+        features: ["Modular architecture", "Role-based access", "Real-time reporting"],
       },
       {
-        title: "ERP & CRM Solutions",
-        description: "Enterprise resource planning and customer relationship management.",
-        features: ["Modular architecture", "Role-based access", "Real-time reporting", "Third-party integrations"],
-      },
-      {
-        title: "Cloud Infrastructure & Hosting",
-        description: "Reliable cloud infrastructure, server management, and hosting.",
-        features: ["AWS / GCP / Azure", "Auto-scaling setup", "99.9% uptime SLA", "Security hardened"],
-      },
-      {
-        title: "AI-powered Business Solutions",
-        description: "Intelligent automation and AI tools embedded in your workflow.",
-        features: ["Chatbots & assistants", "Predictive analytics", "Document processing", "ML model integration"],
-      },
-    ],
-  },
-  {
-    icon: "cpu",
-    title: "Hardware & Smart Systems",
-    description:
-      "Smart devices, IoT automation, security and monitoring, networking, and intelligent office infrastructure setup.",
-    tags: [
-      "Smart POS Devices",
-      "IoT & Automation",
-      "CCTV & Monitoring",
-      "Attendance & Access",
-      "Networking Setup",
-      "Smart Business Devices",
-    ],
-    subServices: [
-      {
-        title: "Smart POS Devices",
-        description: "Modern point-of-sale hardware including touchscreen terminals, receipt printers, and scanners.",
-        features: ["All-in-one POS terminals", "Wireless peripherals", "Cloud-connected", "Durable enterprise-grade build"],
-      },
-      {
-        title: "IoT & Smart Automation",
-        description: "Internet of Things solutions that automate processes and enable smart control of environments.",
-        features: ["Sensor networks", "Remote monitoring", "Automated workflows", "Dashboard control panels"],
-      },
-      {
-        title: "CCTV & Monitoring Systems",
-        description: "Comprehensive video surveillance and monitoring solutions for offices and retail spaces.",
-        features: ["HD & 4K cameras", "Remote viewing", "Motion detection & alerts", "Cloud storage options"],
-      },
-      {
-        title: "Attendance & Access Systems",
-        description: "Biometric and card-based attendance tracking and access control.",
-        features: ["Fingerprint & face recognition", "RFID card access", "Payroll integration", "Audit logs"],
-      },
-    ],
-  },
-  {
-    icon: "megaphone",
-    title: "Business & Digital Services",
-    description:
-      "Design, branding, marketing, and strategic IT consultation to strengthen your digital presence and business identity.",
-    tags: [
-      "UI/UX Design",
-      "Branding & Identity",
-      "Digital Marketing",
-      "E-commerce Solutions",
-      "Technical Consultation",
-      "Maintenance & Support",
-    ],
-    subServices: [
-      {
-        title: "UI/UX Design",
-        description: "Human-centered interface and experience design for web, mobile, and software.",
-        features: ["User research & personas", "Wireframes & prototypes", "Design systems", "Usability testing"],
-      },
-      {
-        title: "Branding & Digital Identity",
-        description: "Comprehensive branding services from logo design to full visual identity guidelines.",
-        features: ["Logo & wordmark design", "Brand guidelines", "Marketing collateral", "Digital asset kits"],
-      },
-      {
-        title: "Digital Marketing Services",
-        description: "Data-driven marketing strategies across digital channels to grow your audience.",
-        features: ["SEO & SEM campaigns", "Social media management", "Content strategy", "Analytics & reporting"],
-      },
-      {
+        icon: "shopping-cart",
         title: "E-commerce Solutions",
-        description: "Full-featured online stores integrated with payments and logistics.",
-        features: ["Custom storefront design", "Payment gateway setup", "Inventory management", "Mobile-optimized"],
+        description: "Full-featured online stores with payments and logistics.",
+        features: ["Custom storefronts", "Payment integration", "Inventory management"],
+      },
+    ],
+  },
+  {
+    id: "cloud",
+    label: "Cloud",
+    featured: {
+      title: "Cloud Infrastructure & DevOps",
+      description: "Reliable, scalable cloud infrastructure with automated deployment pipelines and 99.9% uptime SLA.",
+      visual: "cloud",
+    },
+    items: [
+      {
+        icon: "server",
+        title: "Cloud Migration",
+        description: "Seamless migration of existing systems to cloud infrastructure.",
+        features: ["AWS / GCP / Azure", "Zero-downtime migration", "Cost optimization"],
+      },
+      {
+        icon: "container",
+        title: "DevOps & CI/CD",
+        description: "Automated build, test, and deployment pipelines.",
+        features: ["Docker & Kubernetes", "GitHub Actions", "Infrastructure as Code"],
+      },
+      {
+        icon: "shield",
+        title: "Security & Compliance",
+        description: "Enterprise-grade security hardening and compliance auditing.",
+        features: ["Security assessments", "Encryption at rest/transit", "Compliance docs"],
+      },
+      {
+        icon: "activity",
+        title: "Monitoring & Observability",
+        description: "Real-time monitoring, logging, and alerting for production systems.",
+        features: ["Grafana dashboards", "Incident response", "SLA tracking"],
+      },
+    ],
+  },
+  {
+    id: "ai",
+    label: "AI",
+    featured: {
+      title: "AI-Powered Business Solutions",
+      description: "Intelligent automation and AI tools embedded into your workflow — from chatbots to predictive analytics.",
+      visual: "cpu",
+    },
+    items: [
+      {
+        icon: "bot",
+        title: "Chatbots & Assistants",
+        description: "Custom conversational AI for customer support and operations.",
+        features: ["LLM integration", "Multi-language", "Knowledge base RAG"],
+      },
+      {
+        icon: "bar-chart-3",
+        title: "Predictive Analytics",
+        description: "Data-driven forecasting for smarter business decisions.",
+        features: ["ML model training", "Real-time predictions", "Dashboard integration"],
+      },
+      {
+        icon: "file-text",
+        title: "Document Processing",
+        description: "Automated extraction and processing of documents and forms.",
+        features: ["OCR & NLP", "Invoice processing", "Data extraction"],
+      },
+      {
+        icon: "brain",
+        title: "AI Consulting",
+        description: "Strategic guidance on AI adoption and implementation roadmap.",
+        features: ["Feasibility studies", "Proof of concepts", "Model deployment"],
+      },
+    ],
+  },
+  {
+    id: "business",
+    label: "Business Solutions",
+    featured: {
+      title: "Digital Business Solutions",
+      description: "End-to-end digital products and services that strengthen your brand and operational efficiency.",
+      visual: "briefcase",
+    },
+    items: [
+      {
+        icon: "palette",
+        title: "UI/UX Design",
+        description: "Human-centered design for web, mobile, and software products.",
+        features: ["User research", "Prototyping", "Design systems"],
+      },
+      {
+        icon: "smartphone",
+        title: "Smart POS & Hardware",
+        description: "Modern point-of-sale systems and smart business devices.",
+        features: ["Touchscreen terminals", "Cloud-connected", "Inventory sync"],
+      },
+      {
+        icon: "wifi",
+        title: "IoT & Automation",
+        description: "Connected devices and automated workflows for smart operations.",
+        features: ["Sensor networks", "Remote monitoring", "Dashboard control"],
+      },
+      {
+        icon: "megaphone",
+        title: "Digital Marketing",
+        description: "Data-driven marketing strategies across digital channels.",
+        features: ["SEO & SEM", "Social media", "Analytics & reporting"],
       },
     ],
   },

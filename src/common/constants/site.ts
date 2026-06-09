@@ -9,8 +9,8 @@ export const SITE_URL = "https://www.vyomnix.com";
 export const NAV_ITEMS: NavItem[] = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "Why Us", href: "#why-choose" },
   { label: "Process", href: "#process" },
-  { label: "Technologies", href: "#technologies" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -41,9 +41,9 @@ export const SERVICE_LINKS: NavItem[] = [
   { label: "Custom Software", href: "#services" },
   { label: "Cloud Infrastructure", href: "#services" },
   { label: "Mobile Apps", href: "#services" },
+  { label: "AI Solutions", href: "#services" },
   { label: "Smart Hardware", href: "#services" },
   { label: "UI/UX Design", href: "#services" },
-  { label: "Digital Marketing", href: "#services" },
 ];
 
 export const CONTACT_INFO = {

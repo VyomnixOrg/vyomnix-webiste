@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, Mail, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "@/common/components/motion";
@@ -18,14 +18,7 @@ export function Header() {
   const isScrolled = useScrolled(10);
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
-  useBodyScrollLock(isMenuOpen);
-
-  // Close mobile menu when resized to desktop
-  useEffect(() => {
-    if (isDesktop) {
-      setIsMenuOpen(false);
-    }
-  }, [isDesktop]);
+  useBodyScrollLock(isMenuOpen && !isDesktop);
 
   return (
     <header
@@ -105,7 +98,7 @@ export function Header() {
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
-        {isMenuOpen && (
+        {isMenuOpen && !isDesktop && (
           <motion.div
             initial={{ x: "100%", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}

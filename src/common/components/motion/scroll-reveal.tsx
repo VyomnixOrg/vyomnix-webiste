@@ -1,45 +1,38 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { fadeUp, viewportConfig } from "@/lib/animations";
+import { motion, type Variants } from "framer-motion";
+import { fadeUp, fadeBlur, fadeScale, directionalReveal, viewportConfig } from "@/lib/animations";
 import { cn } from "@/common/utils";
+
+type RevealVariant = "fade-up" | "fade-blur" | "fade-scale" | "directional";
 
 interface ScrollRevealProps {
   children: React.ReactNode;
   className?: string;
-  variants?: any;
+  variant?: RevealVariant;
   delay?: number;
 }
 
-/**
- * Reusable client-side animation wrapper for scroll-reveal.
- * Allows parent pages to remain Next.js Server Components.
- */
+const variantMap: Record<RevealVariant, Variants> = {
+  "fade-up": fadeUp as Variants,
+  "fade-blur": fadeBlur as Variants,
+  "fade-scale": fadeScale as Variants,
+  "directional": directionalReveal as Variants,
+};
+
 export function ScrollReveal({
   children,
   className,
-  variants = fadeUp,
+  variant = "fade-up",
   delay = 0,
 }: ScrollRevealProps) {
-  const animatedVariants = delay > 0
-    ? {
-        ...variants,
-        visible: {
-          ...variants.visible,
-          transition: {
-            ...variants.visible?.transition,
-            delay,
-          },
-        },
-      }
-    : variants;
-
   return (
     <motion.div
-      variants={animatedVariants}
+      variants={variantMap[variant]}
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
+      transition={delay > 0 ? { delay } : undefined}
       className={cn(className)}
     >
       {children}

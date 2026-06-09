@@ -1,52 +1,28 @@
-import type { WhyChooseItem } from "@/common/types";
+export interface WhyChooseItem {
+  number: string;
+  title: string;
+  description: string;
+}
 
 export const WHY_CHOOSE_ITEMS: WhyChooseItem[] = [
   {
-    icon: "trending-up",
-    title: "Scalable Solutions",
-    description:
-      "Our systems are architected to grow with your business — no costly rebuilds as you scale.",
+    number: "01",
+    title: "Business-Focused Approach",
+    description: "We build solutions that solve real operational problems — not technology looking for a problem. Every decision ties back to your business outcomes.",
   },
   {
-    icon: "layers",
-    title: "Modern Technologies",
-    description:
-      "We use only battle-tested, modern tech stacks ensuring longevity and performance.",
+    number: "02",
+    title: "Technical Excellence",
+    description: "Modern architectures, clean code, and battle-tested stacks. We don't cut corners on the technical foundation that your business depends on.",
   },
   {
-    icon: "target",
-    title: "Business-Focused",
-    description:
-      "Every solution is built with your business outcomes in mind — not just technical specs.",
+    number: "03",
+    title: "Transparent Delivery",
+    description: "Clear milestones, weekly updates, and honest communication. No black boxes, no surprises — you always know exactly where your project stands.",
   },
   {
-    icon: "headphones",
-    title: "Reliable Support",
-    description:
-      "Dedicated SLA-backed support teams available to resolve issues promptly.",
-  },
-  {
-    icon: "shield",
-    title: "Secure by Design",
-    description:
-      "Security is embedded at every layer — from architecture to deployment.",
-  },
-  {
-    icon: "infinity",
-    title: "End-to-End Delivery",
-    description:
-      "From ideation to post-launch — we handle the complete technology lifecycle.",
-  },
-  {
-    icon: "users",
-    title: "Experienced Team",
-    description:
-      "A diverse team of engineers, designers, and strategists with proven expertise.",
-  },
-  {
-    icon: "handshake",
-    title: "Long-term Partnership",
-    description:
-      "We invest in understanding your business for a relationship that delivers ongoing value.",
+    number: "04",
+    title: "Long-Term Partnership",
+    description: "We invest in understanding your industry, your challenges, and your goals. Our best work happens in relationships that span years, not months.",
   },
 ];

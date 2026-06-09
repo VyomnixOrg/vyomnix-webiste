@@ -1,6 +1,8 @@
 import {
   Code,
   Cpu,
+  Cloud,
+  Lightbulb,
   Megaphone,
   TrendingUp,
   Layers,
@@ -18,24 +20,30 @@ import {
   Rocket,
   ShoppingCart,
   Building,
+  Smartphone,
+  LayoutDashboard,
+  Server,
+  Container,
+  Activity,
+  Bot,
+  BarChart3,
+  FileText,
+  Brain,
+  Briefcase,
+  Palette,
+  Wifi,
   Linkedin,
   Twitter,
   Instagram,
   Facebook,
 } from "lucide-react";
 
-/**
- * Centralized icon registry.
- * Maps string icon keys to Lucide icon components.
- * Used by data-driven sections (services, industries, why-choose, footer).
- */
 const ICON_REGISTRY: Record<string, React.ElementType> = {
-  // Services
   code: Code,
   cpu: Cpu,
+  cloud: Cloud,
+  lightbulb: Lightbulb,
   megaphone: Megaphone,
-
-  // Why Choose Us
   "trending-up": TrendingUp,
   layers: Layers,
   target: Target,
@@ -44,8 +52,6 @@ const ICON_REGISTRY: Record<string, React.ElementType> = {
   infinity: Infinity,
   users: Users,
   handshake: Handshake,
-
-  // Industries
   "shopping-bag": ShoppingBag,
   utensils: Utensils,
   "graduation-cap": GraduationCap,
@@ -54,18 +60,24 @@ const ICON_REGISTRY: Record<string, React.ElementType> = {
   rocket: Rocket,
   "shopping-cart": ShoppingCart,
   building: Building,
-
-  // Social
+  smartphone: Smartphone,
+  "layout-dashboard": LayoutDashboard,
+  server: Server,
+  container: Container,
+  activity: Activity,
+  bot: Bot,
+  "bar-chart-3": BarChart3,
+  "file-text": FileText,
+  brain: Brain,
+  briefcase: Briefcase,
+  palette: Palette,
+  wifi: Wifi,
   linkedin: Linkedin,
   twitter: Twitter,
   instagram: Instagram,
   facebook: Facebook,
 };
 
-/**
- * Resolves a string icon key to a Lucide icon component.
- * Returns undefined if the key is not found.
- */
 export function getIcon(key: string): React.ElementType | undefined {
   return ICON_REGISTRY[key];
 }
