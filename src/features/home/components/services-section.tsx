@@ -7,6 +7,7 @@ import { Container } from "@/common/components/ui/container";
 import { SectionHeading } from "@/common/components/ui/section-heading";
 import { Button } from "@/common/components/ui/button";
 import { DynamicIcon } from "@/common/components/ui/dynamic-icon";
+import { useScrollTo } from "@/common/hooks/use-scroll-to";
 import { SERVICES } from "@/features/home/data/services";
 import { viewportConfig } from "@/lib/animations";
 import { cn } from "@/common/utils";
@@ -18,6 +19,7 @@ export function ServicesSection() {
   const [isSticky, setIsSticky] = useState(false);
   const pillsRef = useRef<HTMLDivElement>(null);
   const sentinelRef = useRef<HTMLDivElement>(null);
+  const scrollTo = useScrollTo();
 
   useEffect(() => {
     const sentinel = sentinelRef.current;
@@ -88,7 +90,7 @@ export function ServicesSection() {
             className="space-y-10"
           >
             {/* Featured Service Panel */}
-            <div className="group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-white to-secondary/20 p-8 shadow-sm transition-all hover:shadow-md md:p-10">
+            <div className="group relative overflow-hidden rounded-xl border border-border bg-secondary/45 p-8 shadow-sm transition-all hover:shadow-md md:p-10">
               <div className="grid gap-8 md:grid-cols-2 md:gap-12">
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-widest text-primary">
@@ -100,11 +102,15 @@ export function ServicesSection() {
                   <p className="mt-3 text-base leading-relaxed text-muted-foreground">
                     {category.featured.description}
                   </p>
-                  <Button asChild variant="outline" size="sm" className="mt-5">
-                    <a href="#contact">
-                      Learn More
-                      <ChevronRight className="ml-0.5 size-3.5" />
-                    </a>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    type="button"
+                    className="mt-5 bg-white"
+                    onClick={() => scrollTo("contact")}
+                  >
+                    Learn More
+                    <ChevronRight className="ml-0.5 size-3.5" />
                   </Button>
                 </div>
                   <div className="flex items-center justify-center">

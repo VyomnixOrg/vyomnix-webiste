@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { motion, AnimatePresence } from "@/common/components/motion";
 import { Container } from "@/common/components/ui/container";
 import { Button } from "@/common/components/ui/button";
+import { useScrollTo } from "@/common/hooks/use-scroll-to";
 import { staggerContainer, staggerChild } from "@/lib/animations";
 import CountUp from "react-countup";
 import { useInView } from "framer-motion";
@@ -179,6 +179,7 @@ export function HeroSection() {
   const statsRef = useRef<HTMLDivElement>(null);
   const statsInView = useInView(statsRef, { once: true, amount: 0.5 });
   const intervalRef = useRef<ReturnType<typeof setInterval>>(undefined);
+  const scrollTo = useScrollTo();
 
   useEffect(() => {
     intervalRef.current = setInterval(() => {
@@ -241,14 +242,23 @@ export function HeroSection() {
               variants={staggerChild}
               className="mt-8 flex flex-col gap-3 sm:flex-row"
             >
-              <Button asChild size="lg" className="shadow-md">
-                <Link href="#contact">
-                  Book a Consultation
-                  <ArrowRight className="ml-1 size-4" />
-                </Link>
+              <Button
+                size="lg"
+                type="button"
+                className="shadow-md"
+                onClick={() => scrollTo("contact")}
+              >
+                Book a Consultation
+                <ArrowRight className="ml-1 size-4" />
               </Button>
-              <Button asChild variant="outline" size="lg" className="bg-white/50 backdrop-blur-sm">
-                <Link href="#services">View Our Services</Link>
+              <Button
+                variant="outline"
+                size="lg"
+                type="button"
+                className="bg-white/80 backdrop-blur-sm"
+                onClick={() => scrollTo("services")}
+              >
+                View Our Services
               </Button>
             </motion.div>
 

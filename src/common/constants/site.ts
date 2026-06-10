@@ -7,11 +7,12 @@ export const SITE_DESCRIPTION =
 export const SITE_URL = "https://www.vyomnix.com";
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Why Us", href: "#why-choose" },
-  { label: "Process", href: "#process" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "#hero", id: "hero" },
+  { label: "About", href: "#about", id: "about" },
+  { label: "Services", href: "#services", id: "services" },
+  { label: "Why Us", href: "#why-us", id: "why-us" },
+  { label: "Process", href: "#process", id: "process" },
+  { label: "Contact", href: "#contact", id: "contact" },
 ];
 
 export const SOCIAL_LINKS: SocialLink[] = [
@@ -38,12 +39,12 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ];
 
 export const SERVICE_LINKS: NavItem[] = [
-  { label: "Custom Software", href: "#services" },
-  { label: "Cloud Infrastructure", href: "#services" },
-  { label: "Mobile Apps", href: "#services" },
-  { label: "AI Solutions", href: "#services" },
-  { label: "Smart Hardware", href: "#services" },
-  { label: "UI/UX Design", href: "#services" },
+  { label: "Custom Software", href: "#services", id: "services" },
+  { label: "Cloud Infrastructure", href: "#services", id: "services" },
+  { label: "Mobile Apps", href: "#services", id: "services" },
+  { label: "AI Solutions", href: "#services", id: "services" },
+  { label: "Smart Hardware", href: "#services", id: "services" },
+  { label: "UI/UX Design", href: "#services", id: "services" },
 ];
 
 export const CONTACT_INFO = {

@@ -16,9 +16,10 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
 
   useEffect(() => {
     const smoother = ScrollSmoother.create({
-      smooth: 1.4,
+      smooth: 1.8,
       effects: true,
-      smoothTouch: 0.1,
+      smoothTouch: 0.6,
+      normalizeScroll: true,
       wrapper: wrapperRef.current!,
       content: wrapperRef.current!.querySelector("#smooth-content") as HTMLElement,
     });

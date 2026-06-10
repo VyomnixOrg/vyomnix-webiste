@@ -18,24 +18,21 @@ const CONTACT_DETAILS = [
 ] as const;
 
 const NEXT_STEPS = [
-  "We review your inquiry",
-  "We schedule a discussion",
-  "We provide recommendations",
-  "We prepare a proposal",
+  "We review your request within 24h",
+  "We schedule a focused discovery discussion",
+  "We craft a tailored proposal",
+  "We align on scope, timeline, and next steps",
 ];
-
-const PROJECT_TYPES = ["Select project type", "Custom Software", "Mobile App", "Website", "Cloud Infrastructure", "AI Solution", "Digital Marketing", "Other"];
-const BUDGET_RANGES = ["Select budget range", "Under $5,000", "$5,000 – $15,000", "$15,000 – $50,000", "$50,000+"];
 
 export function ContactSection() {
   const [formValues, setFormValues] = useState({
-    name: "", email: "", company: "", projectType: "", budgetRange: "", message: "",
+    name: "", email: "", company: "", subject: "", message: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormValues((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
@@ -46,6 +43,8 @@ export function ContactSection() {
     if (!formValues.name.trim() || formValues.name.trim().length < 2) newErrors.name = "Name is required";
     if (!formValues.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formValues.email.trim()))
       newErrors.email = "Valid email is required";
+    if (!formValues.subject.trim() || formValues.subject.trim().length < 3)
+      newErrors.subject = "Subject is required";
     if (!formValues.message.trim() || formValues.message.trim().length < 10)
       newErrors.message = "Message must be at least 10 characters";
     setErrors(newErrors);
@@ -59,7 +58,7 @@ export function ContactSection() {
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-      setFormValues({ name: "", email: "", company: "", projectType: "", budgetRange: "", message: "" });
+      setFormValues({ name: "", email: "", company: "", subject: "", message: "" });
     }, 1200);
   };
 
@@ -105,15 +104,20 @@ export function ContactSection() {
             </div>
 
             {/* What Happens Next */}
-            <div className="mt-10 rounded-2xl border border-border bg-muted/30 p-6 md:p-8">
+            <div className="mt-10 rounded-xl border border-border bg-muted/30 p-6 md:p-8">
               <h3 className="text-sm font-bold text-accent">What Happens Next?</h3>
-              <ol className="mt-4 space-y-3">
+              <ol className="mt-5 space-y-3 md:space-y-0">
                 {NEXT_STEPS.map((step, idx) => (
                   <li key={step} className="flex items-start gap-3">
-                    <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-secondary text-xs font-bold text-primary">
-                      {idx + 1}
-                    </span>
-                    <span className="text-sm text-muted-foreground">{step}</span>
+                    <div className="flex shrink-0 flex-col items-center">
+                      <span className="flex size-8 items-center justify-center rounded-full border-2 border-primary bg-secondary text-xs font-bold text-primary">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                      {idx < NEXT_STEPS.length - 1 && (
+                        <span className="mt-2 hidden h-6 w-0.5 bg-border md:block" />
+                      )}
+                    </div>
+                    <span className="pt-1.5 text-sm text-muted-foreground">{step}</span>
                   </li>
                 ))}
               </ol>
@@ -122,7 +126,7 @@ export function ContactSection() {
 
           {/* Right: Premium Form */}
           <ScrollReveal variant="fade-scale">
-            <div className="rounded-2xl border border-border bg-gradient-to-br from-white to-secondary/10 p-6 shadow-sm md:p-8 min-h-[500px] flex flex-col justify-center">
+            <div className="flex min-h-[500px] flex-col justify-center rounded-xl border border-border bg-white p-6 shadow-sm md:p-8">
               <AnimatePresence mode="wait">
                 {isSubmitted ? (
                   <motion.div
@@ -200,53 +204,25 @@ export function ContactSection() {
                       />
                     </div>
 
-                    <FormField
-                      id="contact-company"
-                      label="Company"
-                      name="company"
-                      placeholder="Your company (optional)"
-                      value={formValues.company}
-                      onChange={handleChange}
-                    />
-
                     <div className="grid gap-5 sm:grid-cols-2">
-                      <div className="flex flex-col">
-                        <label htmlFor="contact-project-type" className="mb-1.5 block text-sm font-medium text-accent">
-                          Project Type
-                        </label>
-                        <select
-                          id="contact-project-type"
-                          name="projectType"
-                          value={formValues.projectType}
-                          onChange={handleChange}
-                          className="w-full rounded-lg border border-border bg-white px-4 py-2.5 text-sm text-accent transition-colors focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                        >
-                          {PROJECT_TYPES.map((t) => (
-                            <option key={t} value={t === "Select project type" ? "" : t} disabled={t === "Select project type"}>
-                              {t}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      <div className="flex flex-col">
-                        <label htmlFor="contact-budget" className="mb-1.5 block text-sm font-medium text-accent">
-                          Budget Range
-                        </label>
-                        <select
-                          id="contact-budget"
-                          name="budgetRange"
-                          value={formValues.budgetRange}
-                          onChange={handleChange}
-                          className="w-full rounded-lg border border-border bg-white px-4 py-2.5 text-sm text-accent transition-colors focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                        >
-                          {BUDGET_RANGES.map((r) => (
-                            <option key={r} value={r === "Select budget range" ? "" : r} disabled={r === "Select budget range"}>
-                              {r}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
+                      <FormField
+                        id="contact-company"
+                        label="Company"
+                        name="company"
+                        placeholder="Your company (optional)"
+                        value={formValues.company}
+                        onChange={handleChange}
+                      />
+                      <FormField
+                        id="contact-subject"
+                        label="Subject"
+                        name="subject"
+                        required
+                        placeholder="How can we help?"
+                        value={formValues.subject}
+                        onChange={handleChange}
+                        error={errors.subject}
+                      />
                     </div>
 
                     <FormTextarea
@@ -258,19 +234,18 @@ export function ContactSection() {
                       value={formValues.message}
                       onChange={handleChange}
                       error={errors.message}
+                      className="sm:col-span-2"
                     />
 
                     <Button
                       type="submit"
                       size="lg"
                       disabled={isSubmitting}
-                      className="w-full sm:w-auto shadow-sm"
+                      className="w-full rounded-lg px-8 py-3.5 text-[0.95rem] font-semibold shadow-sm active:translate-y-0 hover:-translate-y-px disabled:cursor-not-allowed"
+                      aria-label={isSubmitting ? "Sending message" : undefined}
                     >
                       {isSubmitting ? (
-                        <>
-                          Sending...
-                          <Loader2 className="ml-1 size-4 animate-spin" />
-                        </>
+                        <Loader2 className="size-5 animate-spin" />
                       ) : (
                         <>
                           Send Message

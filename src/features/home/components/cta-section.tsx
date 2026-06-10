@@ -1,10 +1,14 @@
-import Link from "next/link";
+"use client";
+
 import { ArrowRight, Clock } from "lucide-react";
 import { ScrollReveal } from "@/common/components/motion";
 import { Container } from "@/common/components/ui/container";
 import { Button } from "@/common/components/ui/button";
+import { useScrollTo } from "@/common/hooks/use-scroll-to";
 
 export function CtaSection() {
+  const scrollTo = useScrollTo();
+
   return (
     <section className="bg-secondary py-20 md:py-28" aria-label="Call to action">
       <Container>
@@ -17,14 +21,23 @@ export function CtaSection() {
             Our team responds within one business day.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button asChild size="lg" className="shadow-md">
-              <Link href="#contact">
-                Book a Consultation
-                <ArrowRight className="ml-1 size-4" />
-              </Link>
+            <Button
+              size="lg"
+              type="button"
+              className="shadow-md"
+              onClick={() => scrollTo("contact")}
+            >
+              Book a Consultation
+              <ArrowRight className="ml-1 size-4" />
             </Button>
-            <Button asChild variant="outline" size="lg" className="bg-white/40 border-primary/20 hover:bg-white/60">
-              <Link href="#services">Get a Proposal</Link>
+            <Button
+              variant="outline"
+              size="lg"
+              type="button"
+              className="border-primary/20 bg-white/40 hover:bg-white/60"
+              onClick={() => scrollTo("services")}
+            >
+              Get a Proposal
             </Button>
           </div>
           <div className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground">

@@ -15,9 +15,9 @@ interface FormTextareaProps extends React.ComponentProps<"textarea"> {
 }
 
 const INPUT_CLASSES =
-  "w-full rounded-lg border bg-white px-4 py-2.5 text-sm text-accent placeholder:text-muted-foreground/45 transition-colors focus:outline-none focus:ring-2";
+  "w-full rounded-lg border bg-muted px-4 py-3 text-[0.95rem] text-foreground placeholder:text-muted-foreground/45 transition-[border-color,box-shadow,background-color] duration-150 focus:bg-background focus:outline-none focus:ring-[3px]";
 
-const LABEL_CLASSES = "mb-1.5 block text-sm font-medium text-accent";
+const LABEL_CLASSES = "mb-1.5 block text-[0.8rem] font-semibold tracking-[0.04em] text-foreground";
 
 /**
  * Reusable form input field with label and error state handling.
@@ -49,7 +49,7 @@ export function FormField({
           INPUT_CLASSES,
           error
             ? "border-destructive focus:border-destructive focus:ring-destructive/20"
-            : "border-border focus:border-primary focus:ring-primary/20"
+            : "border-border focus:border-primary focus:ring-primary/15"
         )}
         aria-invalid={error ? "true" : "false"}
         aria-describedby={error ? `${id}-error` : undefined}
@@ -92,10 +92,10 @@ export function FormTextarea({
         placeholder={placeholder}
         className={cn(
           INPUT_CLASSES,
-          "resize-none",
+          "min-h-[140px] resize-none",
           error
             ? "border-destructive focus:border-destructive focus:ring-destructive/20"
-            : "border-border focus:border-primary focus:ring-primary/20"
+            : "border-border focus:border-primary focus:ring-primary/15"
         )}
         aria-invalid={error ? "true" : "false"}
         aria-describedby={error ? `${id}-error` : undefined}

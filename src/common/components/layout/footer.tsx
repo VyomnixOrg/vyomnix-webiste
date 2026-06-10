@@ -1,10 +1,14 @@
+"use client";
+
 import Link from "next/link";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Globe, Mail, Phone, MapPin } from "lucide-react";
 import { Container } from "@/common/components/ui/container";
+import { useScrollTo } from "@/common/hooks/use-scroll-to";
 import { getIcon } from "@/lib/icons";
 import {
   SITE_NAME,
   SITE_TAGLINE,
+  SITE_URL,
   NAV_ITEMS,
   SOCIAL_LINKS,
   CONTACT_INFO,
@@ -13,6 +17,7 @@ import {
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const scrollTo = useScrollTo();
 
   return (
     <footer className="border-t border-white/10 bg-accent text-white" role="contentinfo">
@@ -45,9 +50,18 @@ export function Footer() {
             <p className="mt-3 text-sm leading-relaxed text-white/60">
               {SITE_TAGLINE}
             </p>
+            <a
+              href={SITE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-primary"
+            >
+              <Globe className="size-3.5" />
+              <span>www.vyomnix.com</span>
+            </a>
 
             {/* Social Links */}
-            <div className="mt-6 flex items-center gap-3">
+            <div className="mt-6 flex flex-wrap items-center gap-3">
               {SOCIAL_LINKS.map((social) => {
                 const Icon = getIcon(social.icon);
                 return (
@@ -74,12 +88,13 @@ export function Footer() {
             <ul className="space-y-2.5" role="list">
               {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
-                  <Link
-                    href={item.href}
+                  <button
+                    type="button"
+                    onClick={() => scrollTo(item.id)}
                     className="text-sm text-white/60 transition-colors hover:text-primary"
                   >
                     {item.label}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -93,12 +108,13 @@ export function Footer() {
             <ul className="space-y-2.5" role="list">
               {SERVICE_LINKS.map((item) => (
                 <li key={item.label}>
-                  <Link
-                    href={item.href}
+                  <button
+                    type="button"
+                    onClick={() => scrollTo(item.id)}
                     className="text-sm text-white/60 transition-colors hover:text-primary"
                   >
                     {item.label}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>

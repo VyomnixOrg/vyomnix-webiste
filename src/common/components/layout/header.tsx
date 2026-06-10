@@ -10,6 +10,7 @@ import { NAV_ITEMS, SITE_NAME, CONTACT_INFO, SOCIAL_LINKS } from "@/common/const
 import { useScrolled } from "@/common/hooks/use-scrolled";
 import { useBodyScrollLock } from "@/common/hooks/use-body-scroll-lock";
 import { useMediaQuery } from "@/common/hooks/use-media-query";
+import { useScrollTo } from "@/common/hooks/use-scroll-to";
 import { cn } from "@/common/utils";
 import { getIcon } from "@/lib/icons";
 
@@ -17,8 +18,14 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isScrolled = useScrolled(10);
   const isDesktop = useMediaQuery("(min-width: 768px)");
+  const scrollTo = useScrollTo();
 
   useBodyScrollLock(isMenuOpen && !isDesktop);
+
+  const handleNavClick = (sectionId: string) => {
+    scrollTo(sectionId);
+    setIsMenuOpen(false);
+  };
 
   return (
     <header
@@ -26,7 +33,7 @@ export function Header() {
         "fixed top-0 right-0 left-0 z-50 transition-all duration-300",
         isScrolled
           ? "border-b border-border bg-background/95 backdrop-blur-md"
-          : "bg-transparent"
+          : "border-b border-transparent bg-transparent"
       )}
     >
       <Container>
@@ -63,20 +70,21 @@ export function Header() {
           <ul className="hidden items-center gap-1 md:flex" role="list">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="rounded-md px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-accent"
+                <button
+                  type="button"
+                  onClick={() => handleNavClick(item.id)}
+                  className="cursor-pointer rounded-md px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-accent"
                 >
                   {item.label}
-                </Link>
+                </button>
               </li>
             ))}
           </ul>
 
           {/* Desktop CTA */}
           <div className="hidden md:flex">
-            <Button asChild size="sm">
-              <Link href="#contact">Get in Touch</Link>
+            <Button size="sm" type="button" onClick={() => handleNavClick("contact")}>
+              Get in Touch
             </Button>
           </div>
 
@@ -119,13 +127,13 @@ export function Header() {
                     ease: [0.25, 0.1, 0.25, 1],
                   }}
                 >
-                  <Link
-                    href={item.href}
-                    className="font-heading text-2xl font-medium text-accent transition-colors hover:text-primary"
-                    onClick={() => setIsMenuOpen(false)}
+                  <button
+                    type="button"
+                    className="cursor-pointer font-heading text-2xl font-medium text-accent transition-colors hover:text-primary"
+                    onClick={() => handleNavClick(item.id)}
                   >
                     {item.label}
-                  </Link>
+                  </button>
                 </motion.div>
               ))}
               <motion.div
@@ -137,10 +145,13 @@ export function Header() {
                   ease: [0.25, 0.1, 0.25, 1],
                 }}
               >
-                <Button asChild size="lg" className="mt-4 w-full justify-center">
-                  <Link href="#contact" onClick={() => setIsMenuOpen(false)}>
-                    Get in Touch
-                  </Link>
+                <Button
+                  size="lg"
+                  type="button"
+                  className="mt-4 w-full justify-center"
+                  onClick={() => handleNavClick("contact")}
+                >
+                  Get in Touch
                 </Button>
               </motion.div>
             </div>

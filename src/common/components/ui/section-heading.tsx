@@ -15,7 +15,7 @@ interface SectionHeadingProps {
 /**
  * Premium, customizable Section Heading component.
  * Supports center alignments and left-aligned offset desktop layouts (title left, desc right).
- * Features a self-drawing animated primary gradient divider.
+ * Features a self-drawing animated primary divider.
  */
 export function SectionHeading({
   label,
@@ -48,14 +48,14 @@ export function SectionHeading({
           {title}
         </h2>
         
-        {/* Animated Gradient Underline */}
+        {/* Animated Underline */}
         <div className={cn("mt-4 flex", align === "center" ? "justify-center" : "justify-start")}>
           <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: "3.5rem" }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.15 }}
-            className="h-1 rounded-full bg-gradient-to-r from-primary to-primary-hover"
+            className="h-1 rounded-full bg-primary"
           />
         </div>
       </div>

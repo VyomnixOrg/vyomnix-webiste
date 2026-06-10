@@ -1,88 +1,69 @@
 "use client";
 
-import { useRef } from "react";
-import { useInView } from "framer-motion";
-import CountUp from "react-countup";
 import { Container } from "@/common/components/ui/container";
 import { ScrollReveal } from "@/common/components/motion";
 import { WHY_CHOOSE_ITEMS } from "@/features/home/data/why-choose";
-import { cn } from "@/common/utils";
 
-const METRICS = [
-  { value: 100, suffix: "+", label: "Projects" },
-  { value: 50, suffix: "+", label: "Clients" },
-  { value: 95, suffix: "%", label: "Retention" },
+const WHY_STATS = [
+  { value: "100+", label: "Projects" },
+  { value: "50+", label: "Clients" },
+  { value: "95%", label: "Retention" },
 ];
 
 export function WhyChooseSection() {
-  const metricsRef = useRef<HTMLDivElement>(null);
-  const metricsInView = useInView(metricsRef, { once: true, amount: 0.5 });
-
   return (
-    <section id="why-choose" className="bg-muted py-20 md:py-28" aria-label="Why Choose Us">
+    <section id="why-us" className="bg-muted py-16 md:py-20" aria-label="Why Choose Us">
       <Container>
-        <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
-          {/* Left Column — Sticky */}
-          <div className="lg:sticky lg:top-28 lg:self-start">
-            <ScrollReveal>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-primary">
-                Why Choose Us
-              </span>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-accent sm:text-4xl lg:text-[2.5rem] lg:leading-[1.15]">
-                Why Businesses Choose Vyomnix
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                We are more than a vendor — we are a technology partner committed to your 
-                long-term success. Here&apos;s what sets us apart.
-              </p>
-            </ScrollReveal>
+        <ScrollReveal>
+          <span className="inline-block text-[10px] font-semibold uppercase tracking-[0.15em] text-primary">
+            Why Choose Us
+          </span>
+          <h2 className="mt-1.5 text-2xl font-bold leading-[1.15] tracking-tight text-foreground md:text-[26px]">
+            Why Businesses Choose Vyomnix
+          </h2>
+          <p className="mt-2 max-w-[400px] text-[13.5px] leading-[1.7] text-muted-foreground">
+            We are more than a vendor — we are a technology partner committed to your long-term success. Here&apos;s what sets us apart.
+          </p>
+        </ScrollReveal>
 
-            {/* Metrics */}
-            <div
-              ref={metricsRef}
-              className="mt-10 grid grid-cols-3 gap-4"
-            >
-              {METRICS.map((metric) => (
-                <div key={metric.label} className="rounded-xl border border-border bg-white p-5 text-center">
-                  <div className="text-2xl font-bold text-primary md:text-3xl">
-                    {metricsInView ? (
-                      <CountUp end={metric.value} duration={2} suffix={metric.suffix} />
-                    ) : (
-                      `0${metric.suffix}`
-                    )}
-                  </div>
-                  <div className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                    {metric.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Column — Scroll-triggered stacked cards */}
-          <div className="space-y-6">
-            {WHY_CHOOSE_ITEMS.map((item, idx) => (
-              <ScrollReveal
-                key={item.number}
-                delay={0.1 * idx}
-                variant="fade-scale"
-                className={cn(
-                  "rounded-2xl border border-border bg-white p-8 transition-all hover:shadow-md md:p-10",
-                  "hover:border-primary/20"
-                )}
+        <ScrollReveal variant="fade-up">
+          <div className="mt-6 grid grid-cols-3 border-y border-border">
+            {WHY_STATS.map((stat) => (
+              <div
+                key={stat.label}
+                className="relative py-3 [&:not(:last-child)]:after:absolute [&:not(:last-child)]:after:right-0 [&:not(:last-child)]:after:top-[20%] [&:not(:last-child)]:after:h-[60%] [&:not(:last-child)]:after:w-px [&:not(:last-child)]:after:bg-border"
               >
-                <span className="text-5xl font-bold leading-none text-primary/15 md:text-6xl">
-                  {item.number}
-                </span>
-                <h3 className="mt-2 text-xl font-semibold text-accent md:text-2xl">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-base leading-relaxed text-muted-foreground max-w-xl">
-                  {item.description}
-                </p>
-              </ScrollReveal>
+                <div className="font-heading text-[22px] font-extrabold leading-none text-primary">
+                  {stat.value}
+                </div>
+                <div className="mt-1 text-[9px] font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+                  {stat.label}
+                </div>
+              </div>
             ))}
           </div>
+        </ScrollReveal>
+
+        <div className="mt-8 flex flex-col gap-2.5">
+          {WHY_CHOOSE_ITEMS.map((item, idx) => (
+            <ScrollReveal
+              key={item.number}
+              delay={0.08 * idx}
+              variant="fade-up"
+              className="group cursor-pointer rounded-lg border border-border border-l-[3px] border-l-transparent bg-white px-7 py-5 transition-all duration-200 hover:translate-x-[3px] hover:border-l-primary hover:shadow-[0_4px_20px_rgba(85,188,188,0.09)]"
+            >
+              <div className="mb-2 text-[9.5px] font-bold uppercase tracking-[0.12em] text-primary">
+                {item.number}
+              </div>
+              <h3 className="mb-1.5 text-[14.5px] font-bold text-foreground">
+                {item.title}
+              </h3>
+              <div className="mb-2.5 h-0.5 w-[22px] bg-primary" />
+              <p className="text-[12.5px] leading-[1.65] text-muted-foreground">
+                {item.description}
+              </p>
+            </ScrollReveal>
+          ))}
         </div>
       </Container>
     </section>

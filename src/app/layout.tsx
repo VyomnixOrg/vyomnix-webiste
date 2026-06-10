@@ -63,8 +63,8 @@ export default function RootLayout({
         <Header />
         <SmoothScroll>
           <main id="main-content">{children}</main>
+          <Footer />
         </SmoothScroll>
-        <Footer />
       </body>
     </html>
   );
