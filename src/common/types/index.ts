@@ -52,3 +52,22 @@ export interface Stat {
   value: string;
   label: string;
 }
+
+export interface VinyasAboutUs {
+  title: string;
+  description: string;
+  projectDelivered: number;
+  clientServed: number;
+  clientRetention: number;
+}
+
+export interface VinyasHeroSection {
+  title: string;
+  subTitle: string;
+  tag?: string;
+}
+
+export interface VinyasCtaSection {
+  title: string;
+  subTitle: string;
+}

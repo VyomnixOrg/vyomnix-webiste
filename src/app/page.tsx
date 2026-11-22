@@ -7,16 +7,19 @@ import {
   CtaSection,
   ContactSection,
 } from "@/features/home";
+import { getHomePageContent } from "@/lib/vinyas-cms";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const { hero, about, cta } = await getHomePageContent();
+
   return (
     <>
-      <HeroSection />
-      <AboutSection />
+      <HeroSection content={hero} />
+      <AboutSection content={about} />
       <ServicesSection />
       <WhyChooseSection />
       <ProcessSection />
-      <CtaSection />
+      <CtaSection content={cta} />
       <ContactSection />
     </>
   );

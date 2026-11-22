@@ -5,12 +5,7 @@ import { ScrollReveal } from "@/common/components/motion";
 import { CORE_PRINCIPLES } from "@/features/home/data/core-principles";
 import { getIcon } from "@/lib/icons";
 import { ArrowRight } from "lucide-react";
-
-const ABOUT_STATS = [
-  { value: "100+", label: "Projects Delivered" },
-  { value: "50+", label: "Clients Served" },
-  { value: "95%", label: "Client Retention" },
-];
+import type { VinyasAboutUs } from "@/common/types";
 
 const PRINCIPLE_ICONS = ["shield", "code", "eye", "users"];
 const WORKFLOW_STEPS = [
@@ -20,7 +15,18 @@ const WORKFLOW_STEPS = [
   { label: "Development", icon: "code" },
   { label: "Growth", icon: "trending-up" },
 ];
-export function AboutSection() {
+interface AboutSectionProps {
+  content: VinyasAboutUs;
+}
+
+export function AboutSection({ content }: AboutSectionProps) {
+  const aboutStats = [
+    { value: `${content.projectDelivered}+`, label: "Projects Delivered" },
+    { value: `${content.clientServed}+`, label: "Clients Served" },
+    { value: `${content.clientRetention}%`, label: "Client Retention" },
+  ];
+  const descriptionParagraphs = content.description.split(/\n\s*\n/).filter(Boolean);
+
   return (
     <section
       id="about"
@@ -34,29 +40,22 @@ export function AboutSection() {
               About Us
             </span>
             <h2 className="text-[26px] font-bold leading-[1.15] tracking-tight text-foreground md:text-3xl">
-              Your Trusted Technology Partner in South Asia.
+              {content.title}
             </h2>
           </ScrollReveal>
 
           <ScrollReveal variant="fade-blur" className="space-y-3 lg:col-span-7">
-            <p className="text-[13.5px] leading-[1.75] text-muted-foreground">
-              Vyomnix is a Nepal-based software consultancy that partners with
-              businesses to build custom software, cloud infrastructure, and
-              AI-powered systems. We start by understanding your operating
-              reality, then shape technology around the outcomes that matter.
-            </p>
-            <p className="text-[13.5px] leading-[1.75] text-muted-foreground">
-              Founded to bridge the gap between ambition and technology, we
-              support organizations across South Asia and beyond — from
-              ambitious startups to established enterprises looking for
-              dependable digital execution.
-            </p>
+            {descriptionParagraphs.map((paragraph) => (
+              <p key={paragraph} className="text-[13.5px] leading-[1.75] text-muted-foreground">
+                {paragraph}
+              </p>
+            ))}
           </ScrollReveal>
         </div>
 
         <ScrollReveal variant="fade-up">
           <div className="mb-12 grid grid-cols-3 border-y border-border">
-            {ABOUT_STATS.map((stat) => (
+            {aboutStats.map((stat) => (
               <div
                 key={stat.label}
                 className="relative px-4 py-5 sm:px-6 [&:not(:last-child)]:after:absolute [&:not(:last-child)]:after:right-0 [&:not(:last-child)]:after:top-[22%] [&:not(:last-child)]:after:h-[56%] [&:not(:last-child)]:after:w-px [&:not(:last-child)]:after:bg-border"

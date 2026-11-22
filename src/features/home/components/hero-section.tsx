@@ -9,6 +9,7 @@ import { useScrollTo } from "@/common/hooks/use-scroll-to";
 import { staggerContainer, staggerChild } from "@/lib/animations";
 import CountUp from "react-countup";
 import { useInView } from "framer-motion";
+import type { VinyasHeroSection } from "@/common/types";
 
 const STATS_DATA = [
   { value: 100, suffix: "+", label: "Projects Delivered" },
@@ -174,7 +175,11 @@ const DASHBOARD_PANELS = [
   },
 ];
 
-export function HeroSection() {
+interface HeroSectionProps {
+  content: VinyasHeroSection;
+}
+
+export function HeroSection({ content }: HeroSectionProps) {
   const [activePanel, setActivePanel] = useState(0);
   const statsRef = useRef<HTMLDivElement>(null);
   const statsInView = useInView(statsRef, { once: true, amount: 0.5 });
@@ -213,29 +218,22 @@ export function HeroSection() {
             <motion.div variants={staggerChild}>
               <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-secondary/80 px-4 py-1.5 text-sm font-semibold text-primary shadow-sm backdrop-blur-sm">
                 <span className="size-1.5 rounded-full bg-primary animate-pulse" />
-                Nepal&apos;s Premier Software Consultancy
+                {content.tag ?? "Nepal's Premier Software Consultancy"}
               </span>
             </motion.div>
 
             <motion.h1
               variants={staggerChild}
-              className="mt-6 text-[2.5rem] font-bold leading-[1.1] tracking-tight text-accent sm:text-5xl md:text-6xl lg:text-[3.5rem]"
+              className="mt-6 whitespace-pre-line text-[2.5rem] font-bold leading-[1.1] tracking-tight text-accent sm:text-5xl md:text-6xl lg:text-[3.5rem]"
             >
-              We Build Software
-              <br />
-              That Moves
-              <br />
-              <span className="bg-gradient-to-r from-primary to-[#3ea9a9] bg-clip-text text-transparent">
-                Businesses Forward
-              </span>
+              {content.title}
             </motion.h1>
 
             <motion.p
               variants={staggerChild}
               className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg"
             >
-              From concept to deployment — we engineer custom software, cloud infrastructure, 
-              and AI-powered systems that accelerate growth and operational efficiency.
+              {content.subTitle}
             </motion.p>
 
             <motion.div
